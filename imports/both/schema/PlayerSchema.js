@@ -2,7 +2,6 @@ export const Schema = new SimpleSchema({
   position: {
     type: String,
     label: 'Position',
-    min: 1,
   },
   playerNumber: {
     type: Number,
@@ -10,6 +9,6 @@ export const Schema = new SimpleSchema({
   },
   teamId: {
     type: String,
-    label: 'Team ID',
+    label: 'teamId',
   },
 })

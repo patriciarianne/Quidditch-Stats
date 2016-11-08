@@ -9,23 +9,5 @@ export default function Collection(collectionName) {
         return new Class(doc)
       },
     })
-
-    Class.collection.attachSchema(Class.schema, { transform: true })
-
-    if (Meteor.isServer) {
-      Class.collection.deny({
-        insert() {
-          return true
-        },
-        update() {
-          return true
-        },
-        remove() {
-          return true
-        },
-      })
-    }
-
-    return Class
   }
 }
