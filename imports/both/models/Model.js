@@ -32,8 +32,7 @@ export default class Model {
   save(callback) {
     if (this._id) {
       return this.constructor.update(this._id, { $set: this.doc }, {}, callback)
-    } else {
-      return this.constructor.insert(this.doc, callback)
     }
+    return this.constructor.insert(this.doc, callback)
   }
 }

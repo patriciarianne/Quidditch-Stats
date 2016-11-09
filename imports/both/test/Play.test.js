@@ -1,13 +1,13 @@
-import Match from '../../models/Match'
 import Play from '../../models/Play'
 import { expect } from 'chai'
 
 describe('Play Class', () => {
-  const goalMade = new Action({
-    name: 'goalMade',
-    points: 10,
-    position: 'chaser',
+  const play1 = new Play({
+    name: 'Goal Made',
+    playerId: '123',
+    date: new Date(Date.now())
   })
+  
   describe('instantiation' () => {
     it('name should be (goalMade)', () => {
 

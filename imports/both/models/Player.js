@@ -1,28 +1,29 @@
 import Model from './Model'
 import Collection from '../decorators/CollectionDecorator'
-import Play from './Play'
 
 @Collection('players')
 export default class Player extends Model {
-  constructor(doc) {
-    super(doc)
-    this.teamId = null
-    this.matchId = null
+  goal() {
+    if (this.position.toUpperCase() === 'CHASER') {
+      this.goalsMade += 1
+    }
   }
 
-  play(action, match) {
-    if(this.position === action.position) {
-      const play = new Play()
-      play.name = action.name,
-      play.playerId = this._id
-      play.teamId = this.teamId
-      play.matchId = match._id
-      play.date = new Date()
-      play.save()
-      match.addPlay(play)
+  missesGoal() {
+    if (this.position.toUpperCase() === 'CHASER') {
+      this.goalsMissed += 1
     }
-    else{
-      console.log('play not saved')
+  }
+
+  blocksGoal() {
+    if (this.position.toUpperCase() === 'KEEPER') {
+      this.goalsBlocked += 1
+    }
+  }
+
+  catchSnitch() {
+    if (this.position.toUpperCase() === 'SEEKER') {
+      this.hasSnitchCaught = true
     }
   }
 }
