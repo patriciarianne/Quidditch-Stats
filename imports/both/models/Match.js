@@ -32,17 +32,21 @@ export default class Match extends Model {
   }
 
   releasesSnitch() {
-    this.addPlay('Snitch Appeared', null)
+    const play = new Play()
+    play.name = 'Releases Snitch'
+    play.playerId = null
+    play.date = new Date()
+    this.plays.push(play)
     this.snitchAppeared = new Date()
   }
 
   caughtSnitch(player) {
-    let snitchCaught = null
+    const snitchCaught = null
     if (this.snitchAppeared !== null) {
       player.catchSnitch()
       this.addPlay('Caught Snitch', player)
-      snitchCaught = new Date()
+      this.timeSnitchCaught = new Date()
+      this.gameEnded = true
     }
-    this.timeSnitchCaught = snitchCaught - this.snitchAppeared
   }
 }

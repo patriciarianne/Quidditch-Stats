@@ -1,8 +1,8 @@
+import { expect } from 'chai'
 import Team from '../models/Team'
 import Player from '../models/Player'
-import { expect } from 'chai'
 
-describe('Player Class', () => {
+describe('Team Class', () => {
   const player1 = new Player({
     name: 'Rose Tyler',
     position: 'chaser',
@@ -10,7 +10,7 @@ describe('Player Class', () => {
     goalsMade: 5,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: false,
+    hasCaughtSnitch: false,
   })
 
   const player2 = new Player({
@@ -20,7 +20,7 @@ describe('Player Class', () => {
     goalsMade: 0,
     goalsMissed: 0,
     goalsBlocked: 0,
-    isSnitchCaught: true,
+    hasCaughtSnitch: true,
   })
 
   const player3 = new Player({
@@ -30,7 +30,7 @@ describe('Player Class', () => {
     goalsMade: 1,
     goalsMissed: 0,
     goalsBlocked: 0,
-    isSnitchCaught: false,
+    hasCaughtSnitch: false,
   })
 
   const team1 = new Team({

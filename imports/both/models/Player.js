@@ -23,7 +23,7 @@ export default class Player extends Model {
 
   catchSnitch() {
     if (this.position.toUpperCase() === 'SEEKER') {
-      this.hasSnitchCaught = true
+      this.hasCaughtSnitch = true
     }
   }
 }

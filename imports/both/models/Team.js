@@ -11,7 +11,7 @@ export default class Team extends Model {
     let score = 0
     let goals = 0
     this.players.forEach((player) => {
-      if (player.isSnitchCaught === true) {
+      if (player.hasCaughtSnitch === true) {
         score += 150
       }
       goals += player.goalsMade

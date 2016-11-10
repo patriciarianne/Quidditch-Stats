@@ -1,5 +1,5 @@
-import Play from '../models/Play'
 import { expect } from 'chai'
+import Play from '../models/Play'
 
 describe('Play Class', () => {
   const play1 = new Play({

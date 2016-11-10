@@ -1,5 +1,5 @@
-import Player from '../models/Player'
 import { expect } from 'chai'
+import Player from '../models/Player'
 
 describe('Player Class', () => {
   const player1 = new Player({
@@ -9,7 +9,7 @@ describe('Player Class', () => {
     goalsMade: 0,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: false,
+    hasCaughtSnitch: false,
   })
 
   const player2 = new Player({
@@ -19,7 +19,7 @@ describe('Player Class', () => {
     goalsMade: 0,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: false,
+    hasCaughtSnitch: false,
   })
 
   const player3 = new Player({
@@ -29,7 +29,7 @@ describe('Player Class', () => {
     goalsMade: 0,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: false,
+    hasCaughtSnitch: false,
   })
 
   describe('goal()', () => {
@@ -69,14 +69,14 @@ describe('Player Class', () => {
   })
 
   describe('catchSnitch()', () => {
-    it('should make snitchCaught to be true ', () => {
+    it('should make hasCaughtSnitch to be true ', () => {
       player3.catchSnitch()
-      expect(player3.hasSnitchCaught).to.be.true
+      expect(player3.hasCaughtSnitch).to.equal(true)
     })
 
-    it('should make snitchCaught to be false', () => {
+    it('should make hasCaughtSnitch to be false', () => {
       player2.catchSnitch()
-      expect(player2.hasSnitchCaught).to.not.be.true
+      expect(player2.hasCaughtSnitch).to.equal(false)
     })
   })
 })

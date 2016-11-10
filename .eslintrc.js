@@ -15,6 +15,7 @@ module.exports = {
       "no-underscore-dangle" : "off",
       "new-cap" : "off",
       "no-param-reassign" : ["error", {"props": false}],
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": false}]
+      "import/no-extraneous-dependencies":  ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+      "no-undef" : "off",
    }
 };
