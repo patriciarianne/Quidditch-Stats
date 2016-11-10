@@ -1,6 +1,4 @@
-import Player from '../../models/Player'
-import Action from '../../models/Action'
-import Team from '../../models/Team'
+import Player from '../models/Player'
 import { expect } from 'chai'
 
 describe('Player Class', () => {
@@ -73,7 +71,7 @@ describe('Player Class', () => {
   describe('catchSnitch()', () => {
     it('should make snitchCaught to be true ', () => {
       player3.catchSnitch()
-      expect(player1.hasSnitchCaught).to.be.true
+      expect(player3.hasSnitchCaught).to.be.true
     })
 
     it('should make snitchCaught to be false', () => {

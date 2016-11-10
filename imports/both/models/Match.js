@@ -8,7 +8,7 @@ export default class Match extends Model {
     const play = new Play()
     play.name = name
     play.playerId = player._id
-    play.date = new Date(Date.now())
+    play.date = new Date()
     this.plays.push(play)
   }
 
@@ -31,17 +31,18 @@ export default class Match extends Model {
     this.addPlay('Goal Blocked', player)
   }
 
-  caughtSnitch(player) {
-    player.catchSnitch()
-    this.addPlay('Caught Snitch', player)
-    this.snitchCaught = new Date(Date.now())
-  }
-
   releasesSnitch() {
-    this.snitchAppeared = new Date(Date.now())
+    this.addPlay('Snitch Appeared', null)
+    this.snitchAppeared = new Date()
   }
 
-  get timeCaughtSnitch() {
-    return this.snitchCaught - this.snitchAppeared
+  caughtSnitch(player) {
+    let snitchCaught = null
+    if (this.snitchAppeared !== null) {
+      player.catchSnitch()
+      this.addPlay('Caught Snitch', player)
+      snitchCaught = new Date()
+    }
+    this.timeSnitchCaught = snitchCaught - this.snitchAppeared
   }
 }

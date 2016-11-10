@@ -1,6 +1,6 @@
 import Match from '../models/Match'
 import Play from '../models/Play'
-import Team from '../models/Team'
+import Player from '../models/Player'
 import { expect } from 'chai'
 
 describe('Match Class', () => {
@@ -9,12 +9,6 @@ describe('Match Class', () => {
     teams: [],
     snitchCaught: null,
     snitchAppeared: null,
-  })
-
-  const play = new Play({
-    name: 'Sample Play',
-    playerId: '123',
-    date: new Date(Date.now()),
   })
 
   const player1 = new Player({
@@ -47,9 +41,18 @@ describe('Match Class', () => {
     hasSnitchCaught: false,
   })
 
+  const play = new Play({
+    name: 'play',
+    playerId: player1._id,
+    date: new Date(Date.now()),
+  })
+
   describe('addPlay()', () => {
     it('should add a new play', () => {
-      match.addPlay(play)
+      match.addPlay('play', player1)
+      match.plays.forEach((play) => {
+
+      })
       expect(match.plays).to.include(play)
     })
   })

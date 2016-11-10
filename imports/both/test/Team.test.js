@@ -20,7 +20,7 @@ describe('Player Class', () => {
     goalsMade: 0,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: true,
+    isSnitchCaught: true,
   })
 
   const player3 = new Player({
@@ -30,7 +30,7 @@ describe('Player Class', () => {
     goalsMade: 1,
     goalsMissed: 0,
     goalsBlocked: 0,
-    hasSnitchCaught: false,
+    isSnitchCaught: false,
   })
 
   const team1 = new Team({
@@ -56,16 +56,16 @@ describe('Player Class', () => {
   })
 
   describe('getScore()', () => {
-    it('should get a score of 156', () => {
-      expect(team1.getScore()).to.equal(6)
+    it('should get a score of 60', () => {
+      expect(team1.getScore()).to.equal(60)
     })
 
     it('should get a score of 150', () => {
       expect(team2.getScore()).to.equal(150)
     })
 
-    it('should get a score of 156', () => {
-      expect(team3.getScore()).to.equal(156)
+    it('should get a score of 210', () => {
+      expect(team3.getScore()).to.equal(210)
     })
   })
 })
