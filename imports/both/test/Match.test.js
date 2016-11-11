@@ -1,15 +1,9 @@
 import { expect } from 'chai'
 import Match from '../models/Match'
 import Player from '../models/Player'
+import Team from '../models/Team'
 
 describe('Match Class', () => {
-  const match = new Match({
-    plays: [],
-    teams: [],
-    snitchCaught: null,
-    snitchAppeared: null,
-  })
-
   const player1 = new Player({
     _id: '121',
     name: 'Rose Tyler',
@@ -43,10 +37,29 @@ describe('Match Class', () => {
     hasCaughtSnitch: false,
   })
 
+  const team1 = new Team({
+    name: 'Slytherin',
+    players: [player1, player2, player3],
+  })
+
+  const match = new Match({
+    plays: [],
+    teams: [team1],
+    snitchCaught: null,
+    snitchAppeared: null,
+  })
+
   describe('addPlay()', () => {
     it('should add a new play', () => {
-      match.addPlay('play', player1)
+      match.addPlay('play', player1, 1)
       expect(match.plays).to.have.deep.property('[0].name', 'play')
+    })
+  })
+
+  describe('addTeam()', () => {
+    it('should add a new team', () => {
+      match.addTeam(team1)
+      expect(match.teams).to.include(team1)
     })
   })
 
@@ -79,13 +92,17 @@ describe('Match Class', () => {
   })
 
   describe('caughtSnitch()', () => {
+    // const oldDate = Date.now()
+    // Date.now() = () => { return 1478868547524 }
     it('should be able to add caughtSnitch() to plays', () => {
       match.caughtSnitch(player3)
       expect(match.plays).to.have.deep.property('[5].name', 'Caught Snitch')
     })
-
-    it('should get the time when the seeker caught the snitch', () => {
-
-    })
+    //
+    // it('should get the time when the seeker caught the snitch', () => {
+    //   expect(match.timeSnitchCaught).to.equalDate(new Date(1478868547524))
+    // })
+    //
+    // Date.now() = oldDate
   })
 })
