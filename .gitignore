@@ -1,3 +1,4 @@
 node_modules/
 .meteor
 1.4.0
+client/lib

@@ -1,6 +1,6 @@
 module.exports = {
     "parser": "babel-eslint",
-    "extends": "airbnb",
+    "extends": "airbnb-base",
     "installedESLint": true,
     "plugins": [
         "react",
@@ -11,6 +11,7 @@ module.exports = {
       "indent": ["error", 2],
       "semi" : "off",
       "linebreak-style" : "off",
+      "no-console" : "off",
       "no-underscore-dangle" : "off",
       "new-cap" : "off",
       "no-param-reassign" : ["error", {"props": false}],

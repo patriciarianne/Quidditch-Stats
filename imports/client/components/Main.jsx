@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
+
+// import Match from '/imports/both/models/Match'
+// import Team from '/imports/both/models/Team'
+// import Player from '/imports/both/models/Player'
 // import ReactMixin from 'react-mixin'
-//
+import Header from './Header'
+import Commentator from './Commentator'
+// import PlayerComponent from './PlayerComponent'
+
 // @ReactMixin.decorate(ReactMeteorData)
 export default class Main extends Component {
   //
   // getMeteorData() {
-  //   return { actions: Action.find().fetch() }
+  //   return { players: Player.find().fetch() }
   // }
-
 
   render() {
     return (
       <div className="container">
-        <header>
-          <h1>Ligue-de-Quidditch!</h1>
-        </header>
-        <body>
-          {/* {this.data.actions.map((action) => {
-           return <ActionComponent key={action._id} action={action}/>
-          })}*/}
-        </body>
+      <Header />
+      <Commentator/>
       </div>
     )
   }

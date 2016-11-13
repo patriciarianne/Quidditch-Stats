@@ -10,7 +10,8 @@
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-mixin": "^3.0.5"
+    "react-mixin": "^3.0.5",
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",
@@ -20,13 +21,11 @@
     "babel-preset-meteor": "^6.13.0",
     "babel-preset-stage-1": "^6.16.0",
     "chai": "^3.5.0",
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb": "^12.0.0",
+    "eslint": "^3.10.0",
     "eslint-config-airbnb-base": "^10.0.1",
-    "eslint-plugin-babel": "^3.3.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.5.0",
+    "eslint-plugin-import": "^2.1.0",
+    "eslint-plugin-jsx-a11y": "^3.0.1",
+    "eslint-plugin-react": "^6.6.0",
     "mocha": "^3.1.2",
     "underscore": "^1.8.3"
   }

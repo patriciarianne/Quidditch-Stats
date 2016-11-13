@@ -43,23 +43,23 @@ describe('Match Class', () => {
   })
 
   const match = new Match({
-    plays: [],
     teams: [team1],
+    plays: [],
     snitchCaught: null,
     snitchAppeared: null,
-  })
-
-  describe('addPlay()', () => {
-    it('should add a new play', () => {
-      match.addPlay('play', player1, 1)
-      expect(match.plays).to.have.deep.property('[0].name', 'play')
-    })
   })
 
   describe('addTeam()', () => {
     it('should add a new team', () => {
       match.addTeam(team1)
       expect(match.teams).to.include(team1)
+    })
+  })
+
+  describe('addPlay()', () => {
+    it('should add a new play', () => {
+      match.addPlay('play', player1, 1)
+      expect(match.plays).to.have.deep.property('[0].name', 'play')
     })
   })
 
@@ -85,24 +85,23 @@ describe('Match Class', () => {
   })
 
   describe('releasesSnitch()', () => {
-    it('should be able to add caughtSnitch() to plays', () => {
+    it('should be able to add releasesSnitch() to plays', () => {
       match.releasesSnitch()
       expect(match.plays).to.have.deep.property('[4].name', 'Releases Snitch')
     })
   })
 
   describe('caughtSnitch()', () => {
-    // const oldDate = Date.now()
-    // Date.now() = () => { return 1478868547524 }
+    const oldDate = Date.now
     it('should be able to add caughtSnitch() to plays', () => {
+      Date.now = () => 1478868547524
       match.caughtSnitch(player3)
       expect(match.plays).to.have.deep.property('[5].name', 'Caught Snitch')
     })
-    //
-    // it('should get the time when the seeker caught the snitch', () => {
-    //   expect(match.timeSnitchCaught).to.equalDate(new Date(1478868547524))
-    // })
-    //
-    // Date.now() = oldDate
+
+    it('should get the time when the seeker caught the snitch', () => {
+      expect(match.timeSnitchCaught.getTime()).to.equal(new Date(1478868547524).getTime())
+    })
+    Date.now = oldDate
   })
 })

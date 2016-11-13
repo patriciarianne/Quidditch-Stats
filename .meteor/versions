@@ -27,6 +27,7 @@ ecmascript-runtime@0.3.15
 ejson@1.0.13
 es5-shim@4.6.15
 fastclick@1.0.13
+flemay:less-autoprefixer@1.2.0
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -66,6 +67,8 @@ reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
+semantic:ui@2.2.1
+semantic:ui-data@2.2.4
 shell-server@0.2.1
 spacebars@1.0.13
 spacebars-compiler@1.0.13

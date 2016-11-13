@@ -4,17 +4,23 @@ import Play from './Play'
 
 @Collection('matches')
 export default class Match extends Model {
-  addPlay(name, player, points) {
-    const play = new Play()
-    play.name = name
-    play.playerId = player._id
-    play.points = points
-    play.date = new Date()
-    this.plays.push(play)
+  addTeam(team) {
+    if (this.teams.length <= 2) {
+      this.teams.push(team)
+      this.gameEnded = false
+    }
   }
 
-  addTeam(team) {
-    this.teams.push(team)
+  addPlay(name, player, points) {
+    if (this.gameEnded === false) {
+      const play = new Play()
+      play.name = name
+      play.playerId = player._id
+      play.points = points
+      play.date = new Date()
+      play.save()
+      this.plays.push(play)
+    }
   }
 
   goalMade(player) {
@@ -33,13 +39,16 @@ export default class Match extends Model {
   }
 
   releasesSnitch() {
-    const play = new Play()
-    play.name = 'Releases Snitch'
-    play.playerId = null
-    play.points = 0
-    play.date = new Date()
-    this.plays.push(play)
-    this.snitchAppeared = new Date()
+    if (this.gameEnded === false) {
+      const play = new Play()
+      play.name = 'Releases Snitch'
+      play.playerId = null
+      play.points = 0
+      play.date = new Date(Date.now())
+      play.save()
+      this.plays.push(play)
+      this.snitchAppeared = new Date(Date.now())
+    }
   }
 
   caughtSnitch(player) {

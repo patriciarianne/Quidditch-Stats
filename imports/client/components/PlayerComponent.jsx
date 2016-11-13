@@ -1,16 +1,22 @@
 import React from 'react'
 import Player from '/imports/both/models/Player'
 
-export default class Players extends React.Component {
+export default class PlayerComponent extends React.Component {
   handleSubmit(event) {
-    const player = Player.findOne({ _id: this.props.player._id })
+    event.preventDefault()
+    const player = Player.find({ _id: this.props.player._id })
   }
 
   render() {
     return (
-      <tr>
-        <td>{this.props.player.playerNumber}</td>
-      </tr>
+      <form onSubmit={this.handleSubmit.bind(this)}>
+      {this.props.player.position}
+      <br></br>
+      <button className="circular ui icon button">
+        {this.props.player.number}
+      </button>
+      <br></br>
+      </form>
     )
   }
 }
