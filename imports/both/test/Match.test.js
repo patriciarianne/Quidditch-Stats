@@ -43,6 +43,7 @@ describe('Match Class', () => {
   })
 
   const match = new Match({
+    name: 'Match',
     teams: [team1],
     plays: [],
     snitchCaught: null,

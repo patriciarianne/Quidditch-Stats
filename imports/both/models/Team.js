@@ -4,9 +4,10 @@ import Collection from '../decorators/CollectionDecorator'
 @Collection('teams')
 export default class Team extends Model {
   addPlayer(player) {
-    player.teamId = this._id
+    player.team = this._id
     player.save()
     this.players.push(player)
+    this.save()
   }
 
   getScore() {

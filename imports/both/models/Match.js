@@ -8,6 +8,7 @@ export default class Match extends Model {
     if (this.teams.length <= 2) {
       this.teams.push(team)
       this.gameEnded = false
+      this.save()
     }
   }
 
@@ -20,6 +21,7 @@ export default class Match extends Model {
       play.match = this._id
       play.save()
       this.plays.push(play)
+      this.save()
     }
   }
 
@@ -42,11 +44,13 @@ export default class Match extends Model {
     if (this.gameEnded === false) {
       const play = new Play()
       play.name = 'Releases Snitch'
-      play.player = player.name
+      play.player = null
       play.date = new Date(Date.now())
+      play.match = this._id
       play.save()
       this.plays.push(play)
       this.snitchAppeared = new Date(Date.now())
+      this.save()
     }
   }
 
@@ -56,6 +60,7 @@ export default class Match extends Model {
       this.addPlay('Caught Snitch', player)
       this.timeSnitchCaught = new Date(Date.now())
       this.gameEnded = true
+      this.save()
     }
   }
 }

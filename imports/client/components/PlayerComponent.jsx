@@ -10,6 +10,7 @@ export default class PlayerComponent extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
+      {this.props.player.name}
       {this.props.player.position}
       <br></br>
       <button className="circular ui icon button">

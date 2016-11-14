@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-// import Match from '/imports/both/models/Match'
-// import Team from '/imports/both/models/Team'
-// import Player from '/imports/both/models/Player'
+import Match from '/imports/both/models/Match'
+import Team from '/imports/both/models/Team'
+import Player from '/imports/both/models/Player'
 // import ReactMixin from 'react-mixin'
 import Header from './Header'
 import Commentator from './Commentator'
