@@ -46,6 +46,7 @@ export default class Commentator extends Component {
     console.log(team2)
     return (
       <div>
+        {match.name}
         <TeamComponent key={team1._id} team={team1}/>
         <button className="ui inverted blue button">Goal Made</button>
         <button className="ui inverted blue button">Goal Missed</button>

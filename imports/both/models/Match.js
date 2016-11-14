@@ -20,6 +20,7 @@ export default class Match extends Model {
       play.match = this._id
       play.save()
       this.plays.push(play)
+      player.save()
     }
   }
 
