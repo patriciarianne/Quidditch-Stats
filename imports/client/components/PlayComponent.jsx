@@ -6,12 +6,11 @@ export default class PlayComponent extends React.Component {
   render() {
     const date = this.props.play.date.toLocaleString()
     return (
-      <div>
-         {this.props.play.name}
-         {this.props.play.player}
-         {date}
-        <br></br>
-      </div>
+      <tr>
+        <td>{this.props.play.name}</td>
+        <td>{this.props.play.player}</td>
+        <td>{date}</td>
+      </tr>
     )
   }
 }

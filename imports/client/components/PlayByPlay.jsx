@@ -14,15 +14,16 @@ export default class PlayByPlay extends Component {
     if (!this.data.match) {
       return false
     }
-
     const plays = Play.find({ match: this.data.match._id })
 
     return (
       <div>
         PLAYS:
-
-        {plays.map(play => <PlayComponent key={play._id} play={play}/>)}
-
+        <table className="ui striped table">
+          <tbody>
+            {plays.map(play => <PlayComponent key={play._id} play={play}/>)}
+          </tbody>
+        </table>
       </div>
     )
   }
