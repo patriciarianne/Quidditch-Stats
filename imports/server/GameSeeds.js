@@ -27,7 +27,7 @@ export default function loadSeeds() {
 
   const player3 = new Player()
   player3.name = 'Oliver Wood'
-  player3.position = 'Chaser'
+  player3.position = 'Keeper'
   player3.number = '10'
   player3.goalsMade = 0
   player3.goalsMissed = 0
@@ -102,18 +102,21 @@ export default function loadSeeds() {
     console.log(doc)
   })
 
+  const dbTeam1 = Team.findOne({ name: team1.name })
+  const dbTeam2 = Team.findOne({ name: team2.name })
+
   const match = new Match()
   match.teams = []
   match.plays = []
-  match.addTeam(team1)
-  match.addTeam(team2)
+  match.addTeam(dbTeam1)
+  match.addTeam(dbTeam2)
 
 
   match.goalMade(dbPlayer2)
   match.goalBlocked(dbPlayer3)
-  match.goalMissed(dbPlayer4)
+  match.goalMissed(dbPlayer5)
   match.releasesSnitch()
-  match.goalMade(dbPlayer4)
+  match.goalMade(dbPlayer5)
   match.caughtSnitch(dbPlayer1)
 
   match.save((err, doc) => {

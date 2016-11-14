@@ -6,8 +6,7 @@ describe('Play Class', () => {
   Date.now = () => 1478868547521
   const play1 = new Play({
     name: 'Goal Made',
-    playerId: '123',
-    points: 12,
+    player: 'John Smith',
     date: new Date(Date.now()),
   })
 
@@ -16,12 +15,8 @@ describe('Play Class', () => {
       expect(play1.name).to.equal('Goal Made')
     })
 
-    it('playerId should be (123)', () => {
-      expect(play1.playerId).to.equal('123')
-    })
-
-    it('points should be (12)', () => {
-      expect(play1.points).to.equal(12)
+    it('player should be (John Smith)', () => {
+      expect(play1.playerId).to.equal('John Smith')
     })
 
     it('date should be date.now', () => {

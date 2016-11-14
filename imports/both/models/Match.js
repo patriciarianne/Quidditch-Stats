@@ -11,13 +11,13 @@ export default class Match extends Model {
     }
   }
 
-  addPlay(name, player, points) {
+  addPlay(name, player) {
     if (this.gameEnded === false) {
       const play = new Play()
       play.name = name
-      play.playerId = player._id
-      play.points = points
-      play.date = new Date()
+      play.player = player.name
+      play.date = new Date(Date.now())
+      play.match = this._id
       play.save()
       this.plays.push(play)
     }
@@ -25,25 +25,24 @@ export default class Match extends Model {
 
   goalMade(player) {
     player.goal()
-    this.addPlay('Goal Made', player, 10)
+    this.addPlay('Goal Made', player)
   }
 
   goalMissed(player) {
     player.missesGoal()
-    this.addPlay('Goal Missed', player, 0)
+    this.addPlay('Goal Missed', player)
   }
 
   goalBlocked(player) {
     player.blocksGoal()
-    this.addPlay('Goal Blocked', player, 0)
+    this.addPlay('Goal Blocked', player)
   }
 
   releasesSnitch() {
     if (this.gameEnded === false) {
       const play = new Play()
       play.name = 'Releases Snitch'
-      play.playerId = null
-      play.points = 0
+      play.player = player.name
       play.date = new Date(Date.now())
       play.save()
       this.plays.push(play)
@@ -54,7 +53,7 @@ export default class Match extends Model {
   caughtSnitch(player) {
     if (this.snitchAppeared !== null) {
       player.catchSnitch()
-      this.addPlay('Caught Snitch', player, 150)
+      this.addPlay('Caught Snitch', player)
       this.timeSnitchCaught = new Date(Date.now())
       this.gameEnded = true
     }

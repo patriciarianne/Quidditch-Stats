@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 // import ReactMixin from 'react-mixin'
 import Header from './Header'
 import Commentator from './Commentator'
+import PlayByPlay from './PlayByPlay'
 // import PlayerComponent from './PlayerComponent'
 
 // @ReactMixin.decorate(ReactMeteorData)
@@ -20,6 +21,7 @@ export default class Main extends Component {
       <div className="container">
       <Header />
       <Commentator/>
+      <PlayByPlay />
       </div>
     )
   }
