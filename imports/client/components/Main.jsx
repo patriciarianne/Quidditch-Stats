@@ -7,7 +7,7 @@ import Player from '/imports/both/models/Player'
 import Header from './Header'
 import Commentator from './Commentator'
 import PlayByPlay from './PlayByPlay'
-// import PlayerComponent from './PlayerComponent'
+import BoxScore from './BoxScore'
 
 // @ReactMixin.decorate(ReactMeteorData)
 export default class Main extends Component {
@@ -22,6 +22,7 @@ export default class Main extends Component {
       <Header />
       <Commentator/>
       <PlayByPlay />
+      <BoxScore />
       </div>
     )
   }

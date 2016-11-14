@@ -27,16 +27,19 @@ export default class Match extends Model {
 
   goalMade(player) {
     player.goal()
+    player.save()
     this.addPlay('Goal Made', player)
   }
 
   goalMissed(player) {
     player.missesGoal()
+    player.save()
     this.addPlay('Goal Missed', player)
   }
 
   goalBlocked(player) {
     player.blocksGoal()
+    player.save()
     this.addPlay('Goal Blocked', player)
   }
 
@@ -57,6 +60,7 @@ export default class Match extends Model {
   caughtSnitch(player) {
     if (this.snitchAppeared !== null) {
       player.catchSnitch()
+      player.save()
       this.addPlay('Caught Snitch', player)
       this.timeSnitchCaught = new Date(Date.now())
       this.gameEnded = true
