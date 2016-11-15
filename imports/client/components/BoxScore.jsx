@@ -6,7 +6,7 @@ import TeamStat from './TeamStat'
 @ReactMixin.decorate(ReactMeteorData)
 export default class BoxScore extends Component {
   getMeteorData() {
-    return { match: Match.findOne() }
+    return { match: Match.findOne({ name: 'Slytherin VS Gryffindor' }) }
   }
 
   render() {
@@ -14,10 +14,6 @@ export default class BoxScore extends Component {
       return false
     }
     const match = this.data.match
-    const team1 = match.teams[0]
-    const team2 = match.teams[1]
-    console.log(team1)
-    console.log(team2)
     return (
       <div>
         {match.name}

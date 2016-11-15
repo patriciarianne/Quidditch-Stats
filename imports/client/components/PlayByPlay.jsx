@@ -7,7 +7,7 @@ import PlayComponent from './PlayComponent'
 @ReactMixin.decorate(ReactMeteorData)
 export default class PlayByPlay extends Component {
   getMeteorData() {
-    return { match: Match.findOne() }
+    return { match: Match.findOne({ name: 'Slytherin VS Gryffindor' }) }
   }
 
   render() {

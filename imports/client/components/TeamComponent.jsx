@@ -13,12 +13,16 @@ export default class TeamComponent extends Component {
   render() {
     const teamData = Team.findOne({ _id: this.props.team._id })
     const score = teamData.getScore()
+    console.log('------')
+    console.log(this.props.team)
     return (
       <div>
+        <big> {teamData.name} </big>
+        <br></br>
         Score:
         {score}
         <br></br>
-         {this.data.players.map(player => <PlayerComponent key={player._id} player={player}/>)}
+         {this.data.players.map(player => <PlayerComponent selectPlayer={this.props.selectPlayer} key={player._id} player={player}/>)}
       </div>
     )
   }

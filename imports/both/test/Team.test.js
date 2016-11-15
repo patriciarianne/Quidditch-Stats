@@ -55,17 +55,17 @@ describe('Team Class', () => {
     })
   })
 
-  describe('getScore()', () => {
-    it('should get a score of 60', () => {
-      expect(team1.getScore()).to.equal(60)
-    })
-
-    it('should get a score of 150', () => {
-      expect(team2.getScore()).to.equal(150)
-    })
-
-    it('should get a score of 210', () => {
-      expect(team3.getScore()).to.equal(210)
-    })
-  })
+  // describe('getScore()', () => {
+  //   it('should get a score of 60', () => {
+  //     expect(team1.getScore()).to.equal(60)
+  //   })
+  //
+  //   it('should get a score of 150', () => {
+  //     expect(team2.getScore()).to.equal(150)
+  //   })
+  //
+  //   it('should get a score of 210', () => {
+  //     expect(team3.getScore()).to.equal(210)
+  //   })
+  // })
 })

@@ -1,5 +1,6 @@
 import Model from './Model'
 import Collection from '../decorators/CollectionDecorator'
+import Player from './Player'
 
 @Collection('teams')
 export default class Team extends Model {
@@ -10,10 +11,17 @@ export default class Team extends Model {
     this.save()
   }
 
+  getPlayers() {
+    const playerIds = this.players.map(player => player._id)
+    return Player.find({
+      _id: { $in: playerIds },
+    })
+  }
+
   getScore() {
     let score = 0
     let goals = 0
-    this.players.forEach((player) => {
+    this.getPlayers().forEach((player) => {
       if (player.hasCaughtSnitch === true) {
         score += 150
       }

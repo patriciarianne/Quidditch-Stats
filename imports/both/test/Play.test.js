@@ -16,7 +16,7 @@ describe('Play Class', () => {
     })
 
     it('player should be (John Smith)', () => {
-      expect(play1.playerId).to.equal('John Smith')
+      expect(play1.player).to.equal('John Smith')
     })
 
     it('date should be date.now', () => {
