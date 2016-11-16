@@ -4,7 +4,7 @@
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --driver-package=practicalmeteor:mocha",
-    "test:ci": "curl https://install.meteor.com/ | sh && export LC_ALL=en_US.UTF-8 && MONGO_URL=mongodb://mongo/finalqudditch meteor test --once --driver-package dispatch:mocha-phantomjs --unsafe-perm"
+    "test:ci": "curl https://install.meteor.com/ | sh && export LC_ALL=en_US.UTF-8 && MONGO_URL=mongodb://mongo/finalquidditch meteor test --once --driver-package dispatch:mocha-phantomjs --unsafe-perm"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
