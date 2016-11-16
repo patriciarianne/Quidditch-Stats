@@ -1,6 +1,9 @@
 {
   "name": "finalquidditch",
   "private": true,
+  "engines": {
+    "node": "6.2.1"
+  },
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --driver-package=practicalmeteor:mocha",
