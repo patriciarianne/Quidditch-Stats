@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Meteor } from 'meteor/meteor'
 import ReactMixin from 'react-mixin'
 import Match from '/imports/both/models/Match'
 import TeamStat from './TeamStat'
@@ -7,6 +8,7 @@ import Header from './Header'
 @ReactMixin.decorate(ReactMeteorData)
 export default class BoxScore extends Component {
   getMeteorData() {
+    Meteor.subscribe('matches')
     return { match: Match.findOne({ name: 'Ravenclaw VS Hufflepuff' }) }
   }
 
@@ -17,9 +19,11 @@ export default class BoxScore extends Component {
     const match = this.data.match
     return (
       <div>
+      <div className="ui one column centered grid">
         <Header />
         {match.name}
         {match.teams.map(team => <TeamStat key={team._id} team={team}/>)}
+      </div>
       </div>
     )
   }

@@ -10,7 +10,6 @@ export default class Match extends Model {
       team.save()
       this.teams.push(team)
       this.gameEnded = false
-      this.save()
     }
   }
 
@@ -30,7 +29,6 @@ export default class Match extends Model {
       player.goal()
       player.save()
       this.addPlay('Goal Made', player)
-      this.save()
     }
   }
 
@@ -39,7 +37,6 @@ export default class Match extends Model {
       player.missesGoal()
       player.save()
       this.addPlay('Goal Missed', player)
-      this.save()
     }
   }
 
@@ -48,7 +45,6 @@ export default class Match extends Model {
       player.blocksGoal()
       player.save()
       this.addPlay('Goal Blocked', player)
-      this.save()
     }
   }
 
@@ -62,7 +58,6 @@ export default class Match extends Model {
       play.save()
       this.plays.push(play)
       this.snitchAppeared = new Date(Date.now())
-      this.save()
     }
   }
 
@@ -74,7 +69,6 @@ export default class Match extends Model {
         this.addPlay('Caught Snitch', player)
         this.timeSnitchCaught = new Date(Date.now())
         this.gameEnded = true
-        this.save()
       }
     }
   }

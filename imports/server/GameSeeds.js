@@ -143,10 +143,12 @@ export default function loadSeeds() {
   teamPlayers1.forEach((player) => {
     dbTeam1.addPlayer(player)
   })
+  dbTeam1.save()
 
   teamPlayers2.forEach((player) => {
     dbTeam2.addPlayer(player)
   })
+  dbTeam2.save()
 
   const match = new Match()
   match.teams = []
@@ -158,4 +160,5 @@ export default function loadSeeds() {
   const dbMatch = Match.findOne({ name: match.name })
   dbMatch.addTeam(dbTeam1)
   dbMatch.addTeam(dbTeam2)
+  dbMatch.save()
 }

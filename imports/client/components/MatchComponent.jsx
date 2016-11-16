@@ -7,12 +7,17 @@ export default class MatchComponent extends React.Component {
   }
 
   render() {
+    let matchEnded = ''
+    if (this.props.match.gameEnded) {
+      matchEnded = '--- [MATCH ENDED]'
+    }
     return (
       <div>
       {/* <a onClick={this.select.bind(this)}>*/}
       <a href='/commentator'>
       {this.props.match.name}
        </a>
+       {matchEnded}
       </div>
     )
   }

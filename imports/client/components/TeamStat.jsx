@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
 import ReactMixin from 'react-mixin'
+import { Meteor } from 'meteor/meteor'
 import Player from '/imports/both/models/Player'
 import Team from '/imports/both/models/Team'
 import PlayerStat from './PlayerStat'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class TeamStat extends Component {
+  constructor(props) {
+    super(props)
+    this.getMeteorData = this.getMeteorData.bind(this)
+  }
+
   getMeteorData() {
+    Meteor.subscribe('players')
+    Meteor.subscribe('teams')
     return {
       players: Player.find({ team: this.props.team._id }).fetch(),
+      team: Team.findOne({ _id: this.props.team._id }),
     }
   }
 
   render() {
-    const teamData = Team.findOne({ _id: this.props.team._id })
-    const score = teamData.getScore()
+    if (!this.data.team) {
+      return false
+    }
+
     return (
       <div>
-        {teamData.name}
-        Score: {score}
+        <div className="ui huge label">{this.data.team.name} : {this.data.team.getScore()}</div>
         <br></br>
 
         <table className="ui fixed table">

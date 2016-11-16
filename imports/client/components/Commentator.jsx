@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactMixin from 'react-mixin'
+import { Meteor } from 'meteor/meteor'
 import Match from '/imports/both/models/Match'
 import TeamComponent from './TeamComponent'
 import PlayerComponent from './PlayerComponent'
@@ -16,7 +17,8 @@ export default class Commentator extends Component {
   }
 
   getMeteorData() {
-    return { match: Match.findOne({ name: 'Thunderbird VS Wampus' }) }
+    Meteor.subscribe('matches')
+    return { match: Match.findOne({ name: 'Ravenclaw VS Hufflepuff' }) }
   }
 
   selectPlayer(player) {
@@ -25,22 +27,27 @@ export default class Commentator extends Component {
 
   goalMade() {
     this.data.match.goalMade(this.state.currentPlayer)
+    this.data.match.save()
   }
 
   goalMissed() {
     this.data.match.goalMissed(this.state.currentPlayer)
+    this.data.match.save()
   }
 
   goalBlocked() {
     this.data.match.goalBlocked(this.state.currentPlayer)
+    this.data.match.save()
   }
 
   releasesSnitch() {
     this.data.match.releasesSnitch()
+    this.data.match.save()
   }
 
   caughtSnitch() {
     this.data.match.caughtSnitch(this.state.currentPlayer)
+    this.data.match.save()
   }
 
   render() {
@@ -53,9 +60,9 @@ export default class Commentator extends Component {
 
     let matchEnded = ''
     if (match.gameEnded) {
-      matchEnded = 'GAME ENDED'
+      matchEnded = '<< MATCH ENDED >>'
     }
-
+    console.log(match)
     console.log(this.state.currentPlayer)
     return (
       <div>

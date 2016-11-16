@@ -9,7 +9,6 @@ export default class Team extends Model {
       player.team = this._id
       player.save()
       this.players.push(player)
-      this.save()
     }
   }
 

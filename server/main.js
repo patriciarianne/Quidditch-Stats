@@ -7,18 +7,18 @@ import Match from '/imports/both/models/Match'
 Meteor.startup(() => {
 })
 
-Meteor.publish(null, selector =>
-   Player.find(selector),
+Meteor.publish('players', selector =>
+   Player.find({}),
 )
 
-Meteor.publish(null, selector =>
-   Team.find(selector),
+Meteor.publish('teams', selector =>
+   Team.find({}),
 )
 
-Meteor.publish(null, selector =>
-   Match.find(selector),
+Meteor.publish('matches', selector =>
+   Match.find({}),
 )
 
-Meteor.publish(null, selector =>
-   Play.find(selector),
+Meteor.publish('plays', selector =>
+   Play.find({}),
 )
