@@ -5,10 +5,12 @@ import Player from './Player'
 @Collection('teams')
 export default class Team extends Model {
   addPlayer(player) {
-    player.team = this._id
-    player.save()
-    this.players.push(player)
-    this.save()
+    if (this.players.length <= 5) {
+      player.team = this._id
+      player.save()
+      this.players.push(player)
+      this.save()
+    }
   }
 
   getPlayers() {

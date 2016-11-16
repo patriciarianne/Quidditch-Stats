@@ -26,46 +26,56 @@ export default class Match extends Model {
   }
 
   goalMade(player) {
-    player.goal()
-    player.save()
-    this.addPlay('Goal Made', player)
-    this.save()
+    if (this.gameEnded === false) {
+      player.goal()
+      player.save()
+      this.addPlay('Goal Made', player)
+      this.save()
+    }
   }
 
   goalMissed(player) {
-    player.missesGoal()
-    player.save()
-    this.addPlay('Goal Missed', player)
-    this.save()
+    if (this.gameEnded === false) {
+      player.missesGoal()
+      player.save()
+      this.addPlay('Goal Missed', player)
+      this.save()
+    }
   }
 
   goalBlocked(player) {
-    player.blocksGoal()
-    player.save()
-    this.addPlay('Goal Blocked', player)
-    this.save()
+    if (this.gameEnded === false) {
+      player.blocksGoal()
+      player.save()
+      this.addPlay('Goal Blocked', player)
+      this.save()
+    }
   }
 
   releasesSnitch() {
-    const play = new Play()
-    play.name = 'Releases Snitch'
-    play.player = null
-    play.date = new Date(Date.now())
-    play.match = this._id
-    play.save()
-    this.plays.push(play)
-    this.snitchAppeared = new Date(Date.now())
-    this.save()
+    if (this.gameEnded === false) {
+      const play = new Play()
+      play.name = 'Releases Snitch'
+      play.player = null
+      play.date = new Date(Date.now())
+      play.match = this._id
+      play.save()
+      this.plays.push(play)
+      this.snitchAppeared = new Date(Date.now())
+      this.save()
+    }
   }
 
   caughtSnitch(player) {
-    if (this.snitchAppeared !== null) {
-      player.catchSnitch()
-      player.save()
-      this.addPlay('Caught Snitch', player)
-      this.timeSnitchCaught = new Date(Date.now())
-      this.gameEnded = true
-      this.save()
+    if (this.gameEnded === false) {
+      if (this.snitchAppeared !== null) {
+        player.catchSnitch()
+        player.save()
+        this.addPlay('Caught Snitch', player)
+        this.timeSnitchCaught = new Date(Date.now())
+        this.gameEnded = true
+        this.save()
+      }
     }
   }
 }

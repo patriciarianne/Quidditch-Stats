@@ -1,9 +1,8 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
 import { render } from 'react-dom'
-
-import Main from '../imports/client/components/Main.jsx'
+import { renderRoutes } from '../imports/client/routings'
 
 Meteor.startup(() => {
-  render(<Main />, document.getElementById('render-main'))
+  render(renderRoutes(), document.getElementById('render-main'))
 })

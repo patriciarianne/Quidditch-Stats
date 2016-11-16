@@ -23,8 +23,8 @@ export default class Main extends Component {
       <Header />
       <Matches />
       <Commentator/>
-       <PlayByPlay />
-      <BoxScore />
+       {/* <PlayByPlay />
+      <BoxScore />*/}
       </div>
     )
   }

@@ -10,7 +10,7 @@ export default class MatchComponent extends React.Component {
     return (
       <div>
       {/* <a onClick={this.select.bind(this)}>*/}
-      <a href='/lol'>
+      <a href='/commentator'>
       {this.props.match.name}
        </a>
       </div>

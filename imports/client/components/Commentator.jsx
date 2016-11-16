@@ -3,6 +3,8 @@ import ReactMixin from 'react-mixin'
 import Match from '/imports/both/models/Match'
 import TeamComponent from './TeamComponent'
 import PlayerComponent from './PlayerComponent'
+import Header from './Header'
+import PlayByPlay from './PlayByPlay'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class Commentator extends Component {
@@ -14,7 +16,7 @@ export default class Commentator extends Component {
   }
 
   getMeteorData() {
-    return { match: Match.findOne({ name: 'Slytherin VS Gryffindor' }) }
+    return { match: Match.findOne({ name: 'Thunderbird VS Wampus' }) }
   }
 
   selectPlayer(player) {
@@ -49,11 +51,22 @@ export default class Commentator extends Component {
     const team1 = match.teams[0]
     const team2 = match.teams[1]
 
+    let matchEnded = ''
+    if (match.gameEnded) {
+      matchEnded = 'GAME ENDED'
+    }
+
     console.log(this.state.currentPlayer)
     return (
       <div>
+      <Header />
         <div className="ui one column centered grid">
-          <div className="column">{match.name}</div>
+          <big>{matchEnded}</big>
+          <div className="column">
+            <div className="ui massive label">
+              {match.name}
+            </div>
+          </div>
 
           <button onClick={this.goalMade.bind(this)} className="ui inverted blue button">Goal Made</button>
           <button onClick={this.goalMissed.bind(this)} className="ui inverted blue button">Goal Missed</button>
