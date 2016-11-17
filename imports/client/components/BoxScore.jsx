@@ -16,11 +16,12 @@ export default class BoxScore extends Component {
     if (!this.data.match) {
       return false
     }
+
     const match = this.data.match
     return (
       <div>
+      <Header />
       <div className="ui one column centered grid">
-        <Header />
         {match.name}
         {match.teams.map(team => <TeamStat key={team._id} team={team}/>)}
       </div>

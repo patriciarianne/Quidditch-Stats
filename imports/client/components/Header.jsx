@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router'
 export default class Header extends Component {
 
   render() {
     return (
       <div className="ui fluid inverted menu">
-        <a href='/commentator' className="item">
+        <Link to='/commentator' className="item">
           <i className="users icon"></i>
           Commentator
-        </a>
-        <a href='/boxscore' className="item">
+        </Link>
+        <Link to='/boxscore' className="item">
           <i className="trophy icon"></i>
           Box Score
-        </a>
-        <a href='/playbyplay' className="item">
+        </Link>
+        <Link to='/playbyplay' className="item">
           <i className="soccer icon"></i>
           Play-by-Play
-        </a>
+        </Link>
       </div>
     )
   }
