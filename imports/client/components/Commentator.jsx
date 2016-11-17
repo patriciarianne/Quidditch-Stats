@@ -18,9 +18,18 @@ export default class Commentator extends Component {
 
   getMeteorData() {
     Meteor.subscribe('matches')
-    return { match: Match.findOne({ name: 'Ravenclaw VS Hufflepuff' }) }
+    return { match: Match.findOne() }
   }
 
+  handleSubmit(event) {
+    event.preventDefault()
+    Meteor.logout((error) => {
+      if (error) {
+        alert(error.reason)
+      }
+      location.href = '/'
+    })
+  }
   selectPlayer(player) {
     this.setState({ currentPlayer: player });
   }
@@ -51,9 +60,15 @@ export default class Commentator extends Component {
   }
 
   render() {
+    if (!Meteor.userId()) {
+      location.href = '/'
+      return false
+    }
+
     if (!this.data.match) {
       return false
     }
+
     const match = this.data.match
     const team1 = match.teams[0]
     const team2 = match.teams[1]
@@ -62,11 +77,13 @@ export default class Commentator extends Component {
     if (match.gameEnded) {
       matchEnded = '<< MATCH ENDED >>'
     }
-    console.log(match)
-    console.log(this.state.currentPlayer)
+
     return (
       <div>
-      <Header />
+        <Header/>
+        <button onClick={this.handleSubmit.bind(this)} className="ui primary basic button">
+          Log out
+        </button>
         <div className="ui one column centered grid">
           <big>{matchEnded}</big>
           <div className="column">

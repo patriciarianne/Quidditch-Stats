@@ -3,6 +3,7 @@ import ReactMixin from 'react-mixin'
 import { Meteor } from 'meteor/meteor'
 import Match from '/imports/both/models/Match'
 import MatchComponent from './MatchComponent'
+import Login from './Login'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class Matches extends Component {
@@ -15,7 +16,8 @@ export default class Matches extends Component {
     return (
       <div>
       MATCHES
-        {this.data.matches.map(match => <MatchComponent key={match._id} match={match}/>)}
+
+        {/* {this.data.matches.map(match => <MatchComponent key={match._id} match={match}/>)}*/}
       </div>
     )
   }

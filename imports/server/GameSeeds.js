@@ -161,4 +161,9 @@ export default function loadSeeds() {
   dbMatch.addTeam(dbTeam1)
   dbMatch.addTeam(dbTeam2)
   dbMatch.save()
+
+  Accounts.createUser({
+    username: 'user',
+    password: 'pass',
+  })
 }

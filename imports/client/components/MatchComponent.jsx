@@ -1,5 +1,6 @@
 import React from 'react'
 import Match from '/imports/both/models/Match'
+import { Link } from 'meteor/meteor'
 
 export default class MatchComponent extends React.Component {
   select() {
@@ -13,10 +14,9 @@ export default class MatchComponent extends React.Component {
     }
     return (
       <div>
-      {/* <a onClick={this.select.bind(this)}>*/}
-      <a href='/commentator'>
+      <Link to='/commentator'>
       {this.props.match.name}
-       </a>
+       </Link>
        {matchEnded}
       </div>
     )

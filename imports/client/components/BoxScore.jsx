@@ -9,7 +9,7 @@ import Header from './Header'
 export default class BoxScore extends Component {
   getMeteorData() {
     Meteor.subscribe('matches')
-    return { match: Match.findOne({ name: 'Ravenclaw VS Hufflepuff' }) }
+    return { match: Match.findOne() }
   }
 
   render() {
@@ -22,7 +22,6 @@ export default class BoxScore extends Component {
       <div>
       <Header />
       <div className="ui one column centered grid">
-        {match.name}
         {match.teams.map(team => <TeamStat key={team._id} team={team}/>)}
       </div>
       </div>
