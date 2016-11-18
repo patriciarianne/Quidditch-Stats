@@ -8,12 +8,10 @@ export default class PlayerComponent extends React.Component {
   render() {
     return (
       <div>
-      {this.props.player.position}
-      <br></br>
-      <button onClick={this.select.bind(this)} className="circular ui icon button">
-        {this.props.player.number}
-      </button>
-      <br></br>
+        {this.props.player.position}
+        <button onClick={this.select.bind(this)} className="circular ui icon button">
+          {this.props.player.number}
+        </button>
       </div>
     )
   }

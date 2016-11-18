@@ -7,7 +7,6 @@ import Header from './Header'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class PlayByPlay extends Component {
-
   getMeteorData() {
     Meteor.subscribe('matches')
     return { match: Match.findOne() }

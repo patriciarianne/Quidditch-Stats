@@ -30,6 +30,7 @@ export default class Commentator extends Component {
       location.href = '/'
     })
   }
+
   selectPlayer(player) {
     this.setState({ currentPlayer: player });
   }

@@ -29,8 +29,6 @@ export default class TeamStat extends Component {
     return (
       <div>
         <div className="ui huge label">{this.data.team.name} : {this.data.team.getScore()}</div>
-        <br></br>
-
         <table className="ui unstackable table">
           <thead>
             <tr>
