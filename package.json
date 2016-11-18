@@ -1,5 +1,6 @@
 {
   "name": "finalquidditch",
+  "description": "quidditch finals",
   "private": true,
   "engines": {
     "node": "6.2.1"
