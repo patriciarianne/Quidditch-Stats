@@ -59,7 +59,7 @@ describe('Match Class', () => {
 
   describe('addPlay()', () => {
     it('should add a new play', () => {
-      match.addPlay('play', player1)
+      match.addPlay('play', player1, 'position')
       expect(match.plays).to.have.deep.property('[0].name', 'play')
     })
   })
