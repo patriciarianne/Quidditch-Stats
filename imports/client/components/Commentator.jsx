@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import ReactMixin from 'react-mixin'
 import { Meteor } from 'meteor/meteor'
 import Match from '/imports/both/models/Match'
-import TeamComponent from './TeamComponent'
-import PlayerComponent from './PlayerComponent'
+import TeamData from './TeamData'
 import Header from './Header'
-import PlayByPlay from './PlayByPlay'
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class Commentator extends Component {
@@ -100,8 +98,8 @@ export default class Commentator extends Component {
           <button onClick={this.caughtSnitch.bind(this)} className="ui inverted green button">Snitch Caught</button>
 
           <div className="four column centered row">
-            <div className="column"><TeamComponent selectPlayer={this.selectPlayer.bind(this)} key={team1._id} team={team1}/></div>
-            <div className="column"><TeamComponent selectPlayer={this.selectPlayer.bind(this)} key={team2._id} team={team2}/></div>
+            <div className="column"><TeamData selectPlayer={this.selectPlayer.bind(this)} key={team1._id} team={team1}/></div>
+            <div className="column"><TeamData selectPlayer={this.selectPlayer.bind(this)} key={team2._id} team={team2}/></div>
           </div>
         </div>
       </div>

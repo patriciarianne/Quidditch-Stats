@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactMixin from 'react-mixin'
 import { Meteor } from 'meteor/meteor'
 import Match from '/imports/both/models/Match'
-import PlayComponent from './PlayComponent'
+import PlayData from './PlayData'
 import Header from './Header'
 
 @ReactMixin.decorate(ReactMeteorData)
@@ -27,7 +27,7 @@ export default class PlayByPlay extends Component {
 
           <table className="ui striped table">
             <tbody>
-              {this.data.match.plays.map(play => <PlayComponent key={play._id} play={play}/>)}
+              {this.data.match.plays.map(play => <PlayData key={play._id} play={play}/>)}
             </tbody>
           </table>
         </div>

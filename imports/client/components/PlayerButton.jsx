@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class PlayerComponent extends React.Component {
+export default class PlayerButton extends React.Component {
   select() {
     this.props.selectPlayer(this.props.player)
   }

@@ -3,10 +3,10 @@ import ReactMixin from 'react-mixin'
 import { Meteor } from 'meteor/meteor'
 import Player from '/imports/both/models/Player'
 import Team from '/imports/both/models/Team'
-import PlayerComponent from './PlayerComponent'
+import PlayerButton from './PlayerButton'
 
 @ReactMixin.decorate(ReactMeteorData)
-export default class TeamComponent extends Component {
+export default class TeamData extends Component {
   constructor(props) {
     super(props)
     this.getMeteorData = this.getMeteorData.bind(this)
@@ -29,7 +29,7 @@ export default class TeamComponent extends Component {
     return (
       <div>
         <div className="ui huge basic label">{this.data.team.name} : {this.data.team.getScore()}</div>
-         {this.data.players.map(player => <PlayerComponent selectPlayer={this.props.selectPlayer} key={player._id} player={player}/>)}
+         {this.data.players.map(player => <PlayerButton selectPlayer={this.props.selectPlayer} key={player._id} player={player}/>)}
       </div>
     )
   }
