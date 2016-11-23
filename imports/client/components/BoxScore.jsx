@@ -16,8 +16,8 @@ export default class BoxScore extends Component {
     if (!this.data.match) {
       return false
     }
-
     const match = this.data.match
+
     return (
       <div>
         <Header/>

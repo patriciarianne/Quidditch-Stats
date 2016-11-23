@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default class PlayerStat extends React.Component {
-
   render() {
     return (
       <tr>

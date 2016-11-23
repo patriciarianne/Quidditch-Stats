@@ -1,1 +1,1 @@
-https://finalquidditch.herokuapp.com/
+Link for hosted version of app: https://finalquidditch.herokuapp.com/
