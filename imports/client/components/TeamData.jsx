@@ -29,9 +29,8 @@ export default class TeamData extends Component {
     return (
       <div>
         <div className="ui huge basic label">{this.data.team.name} : {this.data.team.getScore()}</div>
-         {this.data.players.map((player) {
-           <PlayerButton selectPlayer={this.props.selectPlayer} key={player._id} player={player}/>
-         })}
+         {this.data.players.map(player =>
+           <PlayerButton selectPlayer={this.props.selectPlayer} key={player._id} player={player}/>)}
       </div>
     )
   }
