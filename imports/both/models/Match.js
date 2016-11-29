@@ -51,7 +51,7 @@ export default class Match extends Model {
   }
 
   releasesSnitch() {
-    if (this.gameEnded === false) {
+    if (this.gameEnded === false && this.snitchAppeared === null) {
       const play = new Play()
       play.name = 'Releases Snitch'
       play.player = null
