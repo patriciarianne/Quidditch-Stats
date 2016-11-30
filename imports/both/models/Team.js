@@ -14,15 +14,16 @@ export default class Team extends Model {
 
   getPlayers() {
     const playerIds = this.players.map(player => player._id)
-    return Player.find({
+    this.players = Player.find({
       _id: { $in: playerIds },
     })
+    return this
   }
 
   getScore() {
     let score = 0
     let goals = 0
-    this.getPlayers().forEach((player) => {
+    this.players.forEach((player) => {
       if (player.hasCaughtSnitch === true) {
         score += 150
       }
